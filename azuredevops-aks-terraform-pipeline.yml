@@ -5,7 +5,6 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- script: echo 'ChandlerMcFly's AZDevOpsAKSTerraformPipeline!'
 - task: DownloadSecureFile@1
   name: public_key
   inputs:
