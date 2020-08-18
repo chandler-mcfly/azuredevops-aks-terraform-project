@@ -20,6 +20,6 @@ steps:
     ensureBackend: true
     backendAzureRmResourceGroupName: 'chanmcfly-k8s_state_storage-rg'
     backendAzureRmResourceGroupLocation: 'westeurope'
-    backendAzureRmStorageAccountName: 'terraformstatestorage'
-    backendAzureRmContainerName: 'terraformstatestoragecontainer'
+    backendAzureRmStorageAccountName: 'cmcflystatestorage'
+    backendAzureRmContainerName: 'cmcflystatestoragecontainer'
     backendAzureRmKey: 'chanmcfly-demo.tfstate'
