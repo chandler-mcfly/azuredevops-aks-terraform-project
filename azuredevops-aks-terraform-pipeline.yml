@@ -23,7 +23,6 @@ steps:
     backendAzureRmContainerName: 'cmcflystatestoragecontainer'
     backendAzureRmKey: 'chanmcfly-demo.tfstate'
 
-
 - task: TerraformCLI@0
   inputs:
     command: 'apply'
