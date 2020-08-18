@@ -7,5 +7,16 @@ pool:
 steps:
 - script: echo ChandlerMcFly's AZDevOpsAKSTerraformPipeline!
   displayName: 'Run a one-line script'
-
-
+- task: TerraformCLI@0
+  inputs:
+    command: 'init'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/configuration/terraform/azure/kubernetes'
+    commandOptions: '-var client_id=$(client_id) -var client_secret=$(client_secret) -var ssh_public_key=$()'
+    backendType: 'azurerm'
+    backendServiceArm: 'azure-resource-manager-service-connection'
+    ensureBackend: true
+    backendAzureRmResourceGroupName: 'chanmcfly-k8s_state_storage-rg'
+    backendAzureRmResourceGroupLocation: 'westeurope'
+    backendAzureRmStorageAccountName: 'demoterraformstatestorage'
+    backendAzureRmContainerName: 'demoterraformstatestoragecontainer'
+    backendAzureRmKey: 'chanmcfly-demo.tfstate'
