@@ -6,7 +6,6 @@ pool:
 
 steps:
 - script: echo ChandlerMcFly's AZDevOpsAKSTerraformPipeline!
-  displayName: 'Run a one-line script'
 - task: DownloadSecureFile@1
   name: public_key
   inputs:
