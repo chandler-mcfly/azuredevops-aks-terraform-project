@@ -10,18 +10,18 @@ steps:
 #   inputs:
 #     secureFile: 'azure_devops.pub'
 
-- task: TerraformCLI@0
-  inputs:
-    command: 'init'
-    workingDirectory: '$(System.DefaultWorkingDirectory)/configuration/terraform/azure/kubernetes'
-    backendType: 'azurerm'
-    backendServiceArm: 'azure-resource-manager-service-connection'
-    ensureBackend: true
-    backendAzureRmResourceGroupName: 'chanmcfly-k8s_state_storage-rg'
-    backendAzureRmResourceGroupLocation: 'westeurope'
-    backendAzureRmStorageAccountName: 'cmcflystatestorage'
-    backendAzureRmContainerName: 'cmcflystatestoragecontainer'
-    backendAzureRmKey: 'chanmcfly-demo.tfstate'
+# - task: TerraformCLI@0
+#   inputs:
+#     command: 'init'
+#     workingDirectory: '$(System.DefaultWorkingDirectory)/configuration/terraform/azure/kubernetes'
+#     backendType: 'azurerm'
+#     backendServiceArm: 'azure-resource-manager-service-connection'
+#     ensureBackend: true
+#     backendAzureRmResourceGroupName: 'chanmcfly-k8s_state_storage-rg'
+#     backendAzureRmResourceGroupLocation: 'westeurope'
+#     backendAzureRmStorageAccountName: 'cmcflystatestorage'
+#     backendAzureRmContainerName: 'cmcflystatestoragecontainer'
+#     backendAzureRmKey: 'chanmcfly-demo.tfstate'
 
 # - task: TerraformCLI@0
 #   inputs:
