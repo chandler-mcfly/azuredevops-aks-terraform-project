@@ -1,0 +1,37 @@
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: DownloadSecureFile@1
+  name: public_key
+  inputs:
+    secureFile: 'azure_devops.pub'
+
+- task: TerraformCLI@0
+  inputs:
+    command: 'init'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/configuration/terraform/azure/kubernetes'
+    backendType: 'azurerm'
+    backendServiceArm: 'azure-resource-manager-service-connection'
+    ensureBackend: true
+    backendAzureRmResourceGroupName: 'chanmcfly-k8s_state_storage-rg'
+    backendAzureRmResourceGroupLocation: 'westeurope'
+    backendAzureRmStorageAccountName: 'cmcflystatestorage'
+    backendAzureRmContainerName: 'cmcflystatestoragecontainer'
+    backendAzureRmKey: 'chanmcfly-demo.tfstate'
+
+- task: TerraformCLI@0
+  inputs:
+    command: 'apply'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/configuration/terraform/azure/kubernetes'
+    environmentServiceName: 'azure-resource-manager-service-connection'
+    commandOptions: '-var client_id=$(client_id) -var client_secret=$(client_secret) -var ssh_public_key=$(public_key.secureFilePath)'
+
+- task: TerraformCLI@0
+  inputs:
+    command: 'destroy'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/configuration/terraform/azure/kubernetes'
+    environmentServiceName: 'azure-resource-manager-service-connection'
