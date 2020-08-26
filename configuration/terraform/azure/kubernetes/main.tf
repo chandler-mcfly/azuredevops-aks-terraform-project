@@ -33,11 +33,3 @@ resource "azurerm_kubernetes_cluster" "terraform-k8s" {
   }
 }
 
-terraform {
-  backend "azurerm" {
-    # storage_account_name="<<storage_account_name>>" 
-    # access_key="<<storage_account_key>>" 
-    # key="<<env_name.k8s.tfstate>>" 
-    # container_name="<<storage_account_container_name>>" 
-  }
-}
