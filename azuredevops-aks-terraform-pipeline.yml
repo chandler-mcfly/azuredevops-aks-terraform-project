@@ -10,10 +10,10 @@ steps:
 #   inputs:
 #     secureFile: 'azure_devops.pub'
 
-# - task: TerraformCLI@0
-#   inputs:
-#     command: 'init'
-#     workingDirectory: '$(System.DefaultWorkingDirectory)/configuration/terraform/azure/kubernetes'
+- task: TerraformCLI@0
+  inputs:
+    command: 'init'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/configuration/terraform/azure/kubernetes'
 #     backendType: 'azurerm'
 #     backendServiceArm: 'azure-resource-manager-service-connection'
 #     ensureBackend: true
