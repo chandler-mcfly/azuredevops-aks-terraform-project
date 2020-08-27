@@ -38,6 +38,7 @@ resource "azurerm_kubernetes_cluster" "terraform-k8s" {
 }
 
 terraform {
+  required_version = ">= 0.13"
   backend "azurerm" { 
   }
 }
